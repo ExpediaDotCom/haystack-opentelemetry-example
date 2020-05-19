@@ -1,6 +1,6 @@
 # Haystack OpenTelemetry through Zipkin
 
-[![Build Status](https://travis-ci.org/ExpediaDotCom/haystack-opentelemetry-example.svg?branch=opentelemetry-java-example)](https://travis-ci.org/ExpediaDotCom/haystack-opentelemetry-example)
+[![Build Status](https://travis-ci.org/ExpediaDotCom/haystack-opentelemetry-example.svg?branch=master)](https://travis-ci.org/ExpediaDotCom/haystack-opentelemetry-example)
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/ExpediaDotCom/haystack/blob/master/LICENSE)
 
 [OpenTelemetry] provides a single set of APIs, libraries, agents, and collector services to capture distributed traces and metrics from your application. You can analyze them using Prometheus, Jaeger, and other observability tools.
