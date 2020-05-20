@@ -57,7 +57,9 @@ public class OpenTelemetryExample {
 
             Random random = new Random();
             TraceId traceId = new TraceId(random.nextLong(), random.nextLong());
+            System.out.println("TraceId: " + traceId.toLowerBase16());
             SpanId spanId = new SpanId(random.nextLong());
+            System.out.println("SpanId: " + spanId.toLowerBase16());
             Map<String, AttributeValue> attributeValueMap = new HashMap<>();
             attributeValueMap.put("attribute_key1", AttributeValue.stringAttributeValue("attribute_value"));
             attributeValueMap.put("attribute_key_numbered", AttributeValue.stringAttributeValue("attribute_value_" + i));

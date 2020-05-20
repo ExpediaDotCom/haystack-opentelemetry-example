@@ -12,9 +12,8 @@ Haystack can consume spans generated from [OpenTelemetry] by using its ZipkinSpa
 
 among others.
 
-
 ## How to integrate with Haystack
-[Haystack Agent] is capable of consuming Zipkin spans through its [Pitchfork] endpoint. In order to enable this, we just need to turn it on in the configurations like this:
+[Haystack Agent] is capable of consuming Zipkin spans through its [Pitchfork] endpoint. In order to enable this, it needs to be enabled in the configurations files like this:
 ```
 agents {
   spans {
@@ -49,13 +48,13 @@ agents {
 }
 ```
 
-Now after this, when agent initializes it'll listen on http://localhost:9411/api/v1/spans for zipkin spans. Please refer to Haystack Agent documentation for [Pitchfork] endpoint versions.
+After this, when agent is initialized it'll listen on http://localhost:9411/api/v1/spans for zipkin spans. Please refer to Haystack Agent documentation for [Pitchfork] endpoint versions.
 
 ## Java ZipkinSpanExporter
 This example will show how to export [OpenTelemetry] spans to haystack through [ZipkinSpanExporter]
 
 ### Dependencies
-We nee to add appropriate [OpenTelemetry] and Zipkin libraries.
+Add the appropriate [OpenTelemetry] and Zipkin dependencies:
 ```
     <dependency>
         <groupId>io.opentelemetry</groupId>
@@ -76,7 +75,7 @@ We nee to add appropriate [OpenTelemetry] and Zipkin libraries.
 
 ### Code Configuration
 
-In the provided example, we first need to create a configuration object
+In the provided example, a configuration object with the endpoint and service name information is created:
 ```
 ZipkinExporterConfiguration configuration =
             ZipkinExporterConfiguration
@@ -87,14 +86,14 @@ ZipkinExporterConfiguration configuration =
                 .build();
 ```
 
-After creating configuration we need to create a ZipkinSpanExporter which will be the object
-that will actually send our spans.
+After creating the configuration object, a ZipkinSpanExporter is created, this will be the object
+that will actually send our spans:
 ```
  ZipkinSpanExporter exporter = ZipkinSpanExporter.create(configuration);
 ```
 
-Once we have our exporter set up then we can start creating spans by using the SpanData class 
-which zipkin consumes.
+Once the exporter object is set up, the spans are created by using the SpanData class 
+which zipkin consumes:
 ```
 SpanData spandata = SpanData.newBuilder()
                     .setTraceId(...)
@@ -111,7 +110,7 @@ SpanData spandata = SpanData.newBuilder()
                     .build();
 ```
 
-After we have created a span(s) all we need to do is use the method export from the previously created exporter. 
+After the span(s) are created, the method export from the previously created exporter is used to send the spans: 
 ```
 exporter.export(Arrays.asList(spandata));
 ```

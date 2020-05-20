@@ -4,10 +4,8 @@ set -o errexit
 
 [[ -z "${JAVA_XMS}" ]] && JAVA_XMS=128m
 [[ -z "${JAVA_XMX}" ]] && JAVA_XMX=512m
-[[ -z "${APP_NAME}" ]] && APP_NAME=opentracing-spring-haystack-example
+[[ -z "${APP_NAME}" ]] && APP_NAME=haystack-opentelemetry-example
 [[ -z "${APP_HOME}" ]] && APP_HOME=.
-[[ -z "${APP_MODE}" ]] && APP_MODE=backend
-[[ -z "${BACKEND_URL}" ]] && BACKEND_URL=http://localhost:9091
 
 JAVA_OPTS="${JAVA_OPTS} \
 -XX:+UseG1GC \
@@ -21,9 +19,7 @@ JAVA_OPTS="${JAVA_OPTS} \
 -Xms${JAVA_XMS} \
 -Dcom.sun.management.jmxremote.authenticate=false \
 -Dcom.sun.management.jmxremote.ssl=false \
--Dcom.sun.management.jmxremote.port=1098 \
--Dspring.profiles.active=${SPRING_PROFILE}
--Dbackend.url=${BACKEND_URL}"
+-Dcom.sun.management.jmxremote.port=1098"
 
-echo "Starting java ${JAVA_OPTS} -jar ${APP_HOME}/${APP_NAME}.jar ${APP_MODE}"
+echo "Starting java ${JAVA_OPTS} -jar ${APP_HOME}/${APP_NAME}.jar"
 exec java ${JAVA_OPTS} -jar "${APP_HOME}/${APP_NAME}.jar" ${APP_MODE}
