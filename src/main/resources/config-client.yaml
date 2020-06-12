@@ -4,7 +4,7 @@ server:
       port: 9090
 
 haystackAgent:
-  haystackAgentHost: localhost
+  haystackAgentHost: haystack-agent
   pitchforkPort: 9411
   serviceName: haystack-opentelemetry
   spanType: v2
