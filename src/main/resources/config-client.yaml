@@ -8,23 +8,3 @@ haystackAgent:
   pitchforkPort: 9411
   serviceName: haystack-opentelemetry
   spanType: V2
-
-#blobs:
-#  enabled: true
-#  store:
-#    name: agent
-#    host: haystack-agent
-#    port: 9411
-#
-#tracer:
-#  serviceName: haystack-opentelemetry
-#  enabled: true
-#  dispatchers:
-#    - type: logger
-#      loggerName: dispatcher
-#    - type: remote
-#      client:
-#        type: agent
-#        host: haystack-agent
-#        format:
-#          type: protobuf
