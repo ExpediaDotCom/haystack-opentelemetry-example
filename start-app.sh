@@ -22,4 +22,4 @@ JAVA_OPTS="${JAVA_OPTS} \
 -Dcom.sun.management.jmxremote.port=1098"
 
 echo "Starting java ${JAVA_OPTS} -jar ${APP_HOME}/${APP_NAME}.jar"
-exec java ${JAVA_OPTS} -jar "${APP_HOME}/${APP_NAME}.jar" ${APP_MODE}
+exec java ${JAVA_OPTS} -jar "${APP_HOME}/${APP_NAME}.jar"

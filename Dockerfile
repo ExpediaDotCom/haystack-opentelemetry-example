@@ -9,4 +9,6 @@ COPY start-app.sh ${APP_HOME}/
 
 WORKDIR ${APP_HOME}
 
+EXPOSE 9090
+
 ENTRYPOINT ["./start-app.sh"]
